@@ -1,15 +1,15 @@
-package pf_ectructuradedatos;
-
 /**
  *
  * @author ttito
  */
-public class Nodo {
-    int dato;
-    Nodo siguiente;
-    
-    public Nodo(int dato){
+public class NodoDobleCircular {
+    Object dato;
+    NodoDobleCircular siguiente;
+    NodoDobleCircular anterior;
+
+    public NodoDobleCircular(Object dato) {
         this.dato = dato;
-        this.siguiente = null;
+        this.siguiente = this;
+        this.anterior = this;
     }
 }
