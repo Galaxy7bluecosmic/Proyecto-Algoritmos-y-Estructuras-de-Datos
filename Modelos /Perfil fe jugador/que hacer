@@ -1,0 +1,13 @@
+definir la clase 
+
+idJugador
+
+nombre
+
+nickname
+
+pilaMisiones ← Pila
+
+logrosObtenidos ← Lista Enlazada Simple o Doble
+
+estadisticas
