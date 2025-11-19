@@ -1,0 +1,9 @@
+MÓDULO 2 — Historial de Misiones (Pila)
+
+Registrar misión completada → push
+
+Consultar historial reciente → peek
+
+Eliminar la última misión (rollback) → pop
+
+Ver historial completo
