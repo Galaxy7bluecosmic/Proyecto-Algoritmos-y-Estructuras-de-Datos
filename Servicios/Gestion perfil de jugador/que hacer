@@ -1,0 +1,25 @@
+MÓDULO 4 — Perfiles de Jugador (Árbol ABB o AVL)
+
+Registrar nuevo perfil
+
+Buscar perfil rápidamente por ID
+
+Actualizar perfil
+
+Eliminar perfil
+
+Listar perfiles (inorden)
+
+Cargar/guardar en XML
+
+Cada perfil debe contener:
+
+Datos del jugador
+
+Historial de misiones (pila)
+
+Progreso
+
+Logros obtenidos
+
+Estadísticas
