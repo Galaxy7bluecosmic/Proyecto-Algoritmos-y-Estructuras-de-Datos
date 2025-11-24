@@ -1,0 +1,169 @@
+package Libreria;
+
+/**
+ *
+ * @author victor
+ */
+public class ImplementacionArbolBinario implements TADArbolBinario{
+    
+    Nodo raiz = null;
+    private boolean esVacio(){
+        if(raiz==null){return true;}
+        return false;
+    }
+    
+    public void tamaño(){
+      tamañoRec(raiz);
+    }
+    
+     private int tamañoRec(Nodo nodo) {
+        if (nodo == null) return 0;
+        return 1 + tamañoRec(nodo.hojaIzquierda) + tamañoRec(nodo.hojaDerecha);
+    }
+     
+    @Override
+    public void vaciar(){
+    raiz = null;
+    }
+    
+    @Override
+     public void altura(){
+     alturaRec(raiz);
+     };
+     private int alturaRec(Nodo nodo) {
+        if (nodo == null) return 0;
+        return 1 + Math.max(alturaRec(nodo.hojaIzquierda), alturaRec(nodo.hojaDerecha));
+    }
+
+     @Override
+      public void insertar(int numero){
+      InsetarRec(raiz,numero);
+      };
+      
+      private void InsetarRec(Nodo nodo, int numero){
+      if(nodo == null){
+      Nodo nuevo = new Nodo(numero);
+      return;
+      }
+      if(numero>raiz.numero){
+      InsetarRec(nodo.hojaDerecha,numero);
+      }else{
+      InsetarRec(nodo.hojaIzquierda,numero);
+      }
+      }
+      
+      @Override
+       public int obtenerRaiz(){
+       if (raiz == null) {return -1;};
+        return raiz.numero;
+       };
+       
+       @Override
+      public int obtenerIzquierdo(Nodo nodo){
+      if (nodo == null || nodo.hojaIzquierda == null) {return -1;}
+        return nodo.hojaIzquierda.numero;
+      };
+      
+       @Override
+      public int obtenerDerecho(Nodo nodo){
+      if (nodo == null || nodo.hojaDerecha == null) {return -1;}
+        return nodo.hojaDerecha.numero;
+      };
+      
+       @Override
+      public void eliminar(int numero){
+      if (this.esVacio()){
+      System.out.println("arbol sin raiz");
+      return;}else{
+      eliminarRec(raiz,numero);
+      }
+          
+      };
+      
+      private void eliminarRec(Nodo nodo, int numero) {
+        if (nodo == null) { 
+            return;}
+        if(nodo.numero== numero){
+            nodo=null;
+            return;
+        }
+        if (numero < nodo.numero){
+        eliminarRec(nodo.hojaIzquierda,numero);
+        } else{
+        eliminarRec(nodo.hojaDerecha,numero);
+        }
+        
+    }
+       @Override
+      public void preOrden(){
+      preOrdenRec(raiz);
+        System.out.println();
+      };
+       private void preOrdenRec(Nodo nodo) {
+        if (nodo == null) return;
+        System.out.print(nodo.numero + " ");
+        preOrdenRec(nodo.hojaIzquierda);
+        preOrdenRec(nodo.hojaDerecha);
+    }
+       @Override
+      public void inOrden(){
+        inOrdenRec(raiz);
+        System.out.println();
+      };
+      private void inOrdenRec(Nodo nodo) {
+        if (nodo == null) return;
+        inOrdenRec(nodo.hojaIzquierda);
+        System.out.print(nodo.numero + " ");
+        inOrdenRec(nodo.hojaDerecha);
+    }
+      
+       @Override
+      public void postOrden(){
+        postOrdenRec(raiz);
+        System.out.println();
+      };
+        private void postOrdenRec(Nodo nodo) {
+        if (nodo == null) return;
+        postOrdenRec(nodo.hojaIzquierda);
+        postOrdenRec(nodo.hojaDerecha);
+        System.out.print(nodo.numero + " ");
+    }
+        
+       @Override
+      public int nivelOrden(int numero){
+          return nivelNodoRec(raiz,numero,0);
+      };
+      
+      private int nivelNodoRec(Nodo nodo, int numero, int nivel) {
+        if (nodo == null) {
+            return -1;
+        }
+        if (nodo.numero == numero) {
+            return nivel;
+        }
+        if (numero < nodo.numero) {
+            return nivelNodoRec(nodo.hojaIzquierda, numero, nivel + 1);
+        } else {
+            return nivelNodoRec(nodo.hojaDerecha, numero, nivel + 1);
+        }
+    }
+
+       @Override
+      public boolean buscar(int numero){
+      return buscarNodo(raiz, numero);};
+      
+      private boolean buscarNodo(Nodo nodo, int numero) {
+        if (nodo == null) {
+            return false;
+        }
+        if (nodo.numero == numero) {
+            return true;
+        }
+        if (numero < nodo.numero) {
+            return buscarNodo(nodo.hojaIzquierda, numero);
+        } else {
+            return buscarNodo(nodo.hojaDerecha, numero);
+        }
+    }
+     
+}
