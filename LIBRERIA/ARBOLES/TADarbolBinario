@@ -1,1 +1,22 @@
+package Libreria;
+
+/**
+ *
+ * @author 
+ */
+public interface TADArbolBinario {
+       void vaciar();
+       void altura();
+       void insertar(int numero);
+       int obtenerRaiz();
+       int obtenerIzquierdo(Nodo nodo);
+       int obtenerDerecho(Nodo nodo);
+       void eliminar(int numero);
+       void preOrden();
+       void inOrden();
+       void postOrden();
+       int nivelOrden(int numero);
+       boolean buscar(int numero);
+      
+}
 
