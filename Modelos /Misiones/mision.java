@@ -19,4 +19,46 @@ public class Mision {
         this.completado=false;
     
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public String getDificultad() {
+        return dificultad;
+    }
+
+    public boolean isCompletado() {
+        return completado;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public void setDificultad(String dificultad) {
+        this.dificultad = dificultad;
+    }
+
+    public void setCompletado(boolean completado) {
+        this.completado = completado;
+    }
+    
+    
 }
