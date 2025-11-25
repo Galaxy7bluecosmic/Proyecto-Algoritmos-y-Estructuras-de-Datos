@@ -1,12 +1,43 @@
-definir la clase
-id
+package Modelos.NPC;
 
-npc
+/**
+ *
+ * @author victor
+ */
+public class NPC {
+    private int id;
+    private String nombre;
+    private String dialogo;
+    
+    public NPC(int id,String nombre, String dialogo){
+    this.id=id;
+    this.dialogo=dialogo;
+    this.nombre=nombre;
+    }
 
-dialogo
+    public int getId() {
+        return id;
+    }
 
-tipo
+    public String getNombre() {
+        return nombre;
+    }
 
-prioridad (si la usas)
+    public String getDialogo() {
+        return dialogo;
+    }
 
-fecha
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setDialogo(String dialogo) {
+        this.dialogo = dialogo;
+    }
+    
+    
+}
