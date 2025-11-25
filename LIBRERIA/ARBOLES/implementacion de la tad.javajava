@@ -1,3 +1,7 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package Libreria;
 
 /**
@@ -12,14 +16,6 @@ public class ImplementacionArbolBinario implements TADArbolBinario{
         return false;
     }
     
-    public void tamaño(){
-      tamañoRec(raiz);
-    }
-    
-     private int tamañoRec(Nodo nodo) {
-        if (nodo == null) return 0;
-        return 1 + tamañoRec(nodo.hojaIzquierda) + tamañoRec(nodo.hojaDerecha);
-    }
      
     @Override
     public void vaciar(){
@@ -27,8 +23,8 @@ public class ImplementacionArbolBinario implements TADArbolBinario{
     }
     
     @Override
-     public void altura(){
-     alturaRec(raiz);
+     public int altura(){
+     return alturaRec(raiz);
      };
      private int alturaRec(Nodo nodo) {
         if (nodo == null) return 0;
@@ -37,19 +33,20 @@ public class ImplementacionArbolBinario implements TADArbolBinario{
 
      @Override
       public void insertar(int numero){
-      InsetarRec(raiz,numero);
+      raiz = InsetarRec(raiz,numero);
       };
       
-      private void InsetarRec(Nodo nodo, int numero){
+      private Nodo InsetarRec(Nodo nodo, int numero){
       if(nodo == null){
       Nodo nuevo = new Nodo(numero);
-      return;
+      return nuevo;
       }
-      if(numero>raiz.numero){
-      InsetarRec(nodo.hojaDerecha,numero);
+      if(numero>nodo.numero){
+      nodo.hojaDerecha = InsetarRec(nodo.hojaDerecha,numero);
       }else{
-      InsetarRec(nodo.hojaIzquierda,numero);
+      nodo.hojaIzquierda = InsetarRec(nodo.hojaIzquierda,numero);
       }
+      return nodo;
       }
       
       @Override
@@ -75,24 +72,41 @@ public class ImplementacionArbolBinario implements TADArbolBinario{
       if (this.esVacio()){
       System.out.println("arbol sin raiz");
       return;}else{
-      eliminarRec(raiz,numero);
+      raiz = eliminarRec(raiz,numero);
       }
           
       };
-      
-      private void eliminarRec(Nodo nodo, int numero) {
-        if (nodo == null) { 
-            return;}
-        if(nodo.numero== numero){
-            nodo=null;
-            return;
+      private int minimo(Nodo nodo) {
+    while (nodo.hojaIzquierda != null) {
+      nodo=nodo.hojaIzquierda;
+     
+    }
+    return nodo.numero;
+}
+
+      private Nodo eliminarRec(Nodo nodo, int numero){
+      if (nodo == null){
+        return null;
+    }
+    if (numero < nodo.numero){
+     nodo.hojaIzquierda = eliminarRec(nodo.hojaIzquierda, numero);
+    } else if (numero > nodo.numero){
+       nodo.hojaDerecha = eliminarRec(nodo.hojaDerecha, numero);
+    } 
+    else{
+        if (nodo.hojaIzquierda == null && nodo.hojaDerecha == null) {
+            return null;
         }
-        if (numero < nodo.numero){
-        eliminarRec(nodo.hojaIzquierda,numero);
-        } else{
-        eliminarRec(nodo.hojaDerecha,numero);
+        if (nodo.hojaIzquierda == null){
+            return nodo.hojaDerecha;
         }
-        
+        if (nodo.hojaDerecha == null){
+            return nodo.hojaIzquierda;
+        }
+        int sucesor = minimo(nodo.hojaDerecha);
+        nodo.numero = sucesor; 
+        nodo.hojaDerecha = eliminarRec(nodo.hojaDerecha, sucesor);
+    }return nodo;  
     }
        @Override
       public void preOrden(){
@@ -100,7 +114,7 @@ public class ImplementacionArbolBinario implements TADArbolBinario{
         System.out.println();
       };
        private void preOrdenRec(Nodo nodo) {
-        if (nodo == null) return;
+        if (nodo == null){return;}
         System.out.print(nodo.numero + " ");
         preOrdenRec(nodo.hojaIzquierda);
         preOrdenRec(nodo.hojaDerecha);
@@ -111,7 +125,7 @@ public class ImplementacionArbolBinario implements TADArbolBinario{
         System.out.println();
       };
       private void inOrdenRec(Nodo nodo) {
-        if (nodo == null) return;
+        if (nodo == null){return;}
         inOrdenRec(nodo.hojaIzquierda);
         System.out.print(nodo.numero + " ");
         inOrdenRec(nodo.hojaDerecha);
@@ -123,7 +137,7 @@ public class ImplementacionArbolBinario implements TADArbolBinario{
         System.out.println();
       };
         private void postOrdenRec(Nodo nodo) {
-        if (nodo == null) return;
+        if (nodo == null){return;}
         postOrdenRec(nodo.hojaIzquierda);
         postOrdenRec(nodo.hojaDerecha);
         System.out.print(nodo.numero + " ");
@@ -133,37 +147,37 @@ public class ImplementacionArbolBinario implements TADArbolBinario{
       public int nivelOrden(int numero){
           return nivelNodoRec(raiz,numero,0);
       };
-      
       private int nivelNodoRec(Nodo nodo, int numero, int nivel) {
-        if (nodo == null) {
+        if(nodo == null) {
             return -1;
         }
-        if (nodo.numero == numero) {
+        if(nodo.numero == numero) {
             return nivel;
         }
-        if (numero < nodo.numero) {
+        if(numero < nodo.numero) {
             return nivelNodoRec(nodo.hojaIzquierda, numero, nivel + 1);
         } else {
             return nivelNodoRec(nodo.hojaDerecha, numero, nivel + 1);
-        }
+    }
     }
 
        @Override
       public boolean buscar(int numero){
       return buscarNodo(raiz, numero);};
-      
+
       private boolean buscarNodo(Nodo nodo, int numero) {
-        if (nodo == null) {
+        if(nodo == null){
             return false;
         }
-        if (nodo.numero == numero) {
+        if(nodo.numero == numero){
             return true;
         }
-        if (numero < nodo.numero) {
+        if(numero < nodo.numero){
             return buscarNodo(nodo.hojaIzquierda, numero);
-        } else {
+        }else{
             return buscarNodo(nodo.hojaDerecha, numero);
-        }
+    }
     }
      
 }
+
