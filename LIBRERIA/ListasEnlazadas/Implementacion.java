@@ -1,7 +1,6 @@
 
 package Libreria;
-import Modelos.Misiones.Mision;
-import Modelos.Logros.Logro;
+
 /**
  *
  * @author ttito
@@ -10,9 +9,6 @@ public class ImplementacionTADDoblementecircular <T> implements TADLEDoblementeC
    
     private Nodo<T> head = null;
    
-
-    
-
     public boolean estaVacia() {
         return head == null;
     }
@@ -42,12 +38,12 @@ public class ImplementacionTADDoblementecircular <T> implements TADLEDoblementeC
     @Override
     public void mostrar() {
         if (estaVacia()) {
-            System.out.println("Lista vacía");
+            System.out.println("Lista vacia");
             return;
         }
         Nodo<T> temp = head;
         do {
-        System.out.print(temp.dato + " <-> ");
+        System.out.print(temp.dato.toString() + " <-> ");
         temp = temp.siguiente;
         } while (temp != head);
         System.out.println("(inicio)");
@@ -56,7 +52,7 @@ public class ImplementacionTADDoblementecircular <T> implements TADLEDoblementeC
     @Override
     public void mostrarAlReves() {
         if (estaVacia()) {
-            System.out.println("Lista vacía");
+            System.out.println("Lista vacia");
             return;
         }
 
@@ -64,7 +60,7 @@ public class ImplementacionTADDoblementecircular <T> implements TADLEDoblementeC
         Nodo<T> temp = tail;
 
         do {
-            System.out.print(temp.dato + " <-> ");
+            System.out.print(temp.dato.toString() + " <-> ");
             temp = temp.anterior;
         } while (temp != tail);
         System.out.println("(final)");
