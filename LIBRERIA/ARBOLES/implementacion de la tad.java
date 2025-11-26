@@ -6,7 +6,7 @@ package Libreria;
 
 /**
  *
- * @author Enock & el resto
+ * @author Enock y el resto
  */
 interface identificador{
     int getId();
