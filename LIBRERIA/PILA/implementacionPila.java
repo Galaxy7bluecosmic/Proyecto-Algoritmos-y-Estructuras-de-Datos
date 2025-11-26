@@ -1,15 +1,11 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Libreria;
 
 /**
  *
  * @author victor
  */
-public class ImplementacionPila <T> implements TADPila<T>{
-      Nodo <T> cabeza=null;
+public class ImplementacionCola<T> implements TADCola<T> {
+     Nodo cabeza=null;
     public boolean Vacia(){
     if (cabeza== null){
     return true;
@@ -17,20 +13,24 @@ public class ImplementacionPila <T> implements TADPila<T>{
     }
     
     @Override
-     public void Push (T dato){
-         Nodo nuevo = new Nodo(dato);
+     public void Enqueue(T dato){
+          Nodo nuevo = new  Nodo(dato);
          
      if(this.Vacia()){
      cabeza = nuevo;
      return;
      }else{
-     nuevo.siguiente=cabeza;
-     cabeza=nuevo;
+     Nodo iterador = cabeza;
+     
+     while(iterador.siguiente !=null){
+     iterador=iterador.siguiente;
+     }
+     iterador.siguiente = nuevo;
      }
      };
      
        @Override
-    public void Pop (){
+    public void Dequeue (){
      if(this.Vacia()){
      return;
      }else{
@@ -48,4 +48,6 @@ public class ImplementacionPila <T> implements TADPila<T>{
      System.out.println(cabeza.dato.toString());
      }
     };
+    
 }
+
