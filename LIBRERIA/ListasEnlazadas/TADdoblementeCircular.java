@@ -1,22 +1,25 @@
 
+package Libreria;
+
 /**
  *
- * @author ttito
+ * @author ttito 
  */
-public interface TADListaCircularDoble {
-
-    void insertarInicio(Object dato);
-    void insertarFinal(Object dato);
-    void insertarEnPosicion(Object dato, int posicion);
+public interface TADLEDoblementeCircular <T> {
+    
+    void insertarInicio(T dato);
+    void insertarFinal(T dato);
+    void insertarEnPosicion(T dato, int posicion);
 
     void eliminarInicio();
     void eliminarFinal();
-    void eliminarPosicion(int posicion);
-    void eliminar(Object dato);
+    Nodo<T> eliminarPosicion(int posicion);
+    Nodo<T> eliminar(T dato);
 
     void mostrar();
     void mostrarAlReves();
 
-    boolean buscar(Object dato);
+    boolean buscar(T dato);
     int contarNodos();
+  
 }
