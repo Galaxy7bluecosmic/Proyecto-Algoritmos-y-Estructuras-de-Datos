@@ -1,24 +1,20 @@
 package Libreria;
 
-public class Nodo {
-     Object dato;
-   Nodo siguiente;
-   Nodo anterior;
-   int numero;
-
-   Nodo hojaDerecha;
-   Nodo hojaIzquierda;
+public class Nodo <T> {
+ 
   
-   public Nodo(Object dato){
-   this.dato = dato;
+   Nodo<T> hojaDerecha;
+   Nodo<T> hojaIzquierda;
+  
+    Nodo<T> siguiente;
+    Nodo<T> anterior;
+    T dato;
+
+    public Nodo(T dato) {
+        this.dato = dato;
         this.siguiente = null;
         this.anterior = null;
-           
-   }
-   
-   public Nodo(int numero){
-       this.numero=numero;
-      this.hojaDerecha=null;
-        this.hojaIzquierda=null;  
-   }
+    }
+    
+    
 }
