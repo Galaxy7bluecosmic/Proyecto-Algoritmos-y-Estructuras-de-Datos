@@ -1,10 +1,11 @@
+package Libreria;
+
 /**
  *
  * @author victor
  */
-public interface TADcola {
-    void Enqueue(Object dato);
+public interface TADCola <T> {
+    void Enqueue(T dato);
     void Dequeue ();
     void Peek();
 }
-
