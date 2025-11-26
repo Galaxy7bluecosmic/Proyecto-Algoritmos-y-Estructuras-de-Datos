@@ -1,3 +1,7 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package Libreria;
 
 /**
@@ -32,7 +36,7 @@ public class ImplementacionPila <T> implements TADPila<T>{
      }else{
      Nodo Temp = cabeza;
      cabeza= cabeza.siguiente;
-     System.out.println(Temp.dato);
+     System.out.println(Temp.dato.toString());
      }
     };
     
@@ -41,6 +45,7 @@ public class ImplementacionPila <T> implements TADPila<T>{
       if(this.Vacia()){
      return;
      }else{
-     System.out.println(cabeza.dato);
+     System.out.println(cabeza.dato.toString());
      }
     };
+}
