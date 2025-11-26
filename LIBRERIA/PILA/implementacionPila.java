@@ -1,10 +1,11 @@
+package Libreria;
 
 /**
  *
  * @author victor
  */
-public class ImplementacionPila implements TADpila {
-     NODO cabeza=null;
+public class ImplementacionPila <T> implements TADPila<T>{
+      Nodo <T> cabeza=null;
     public boolean Vacia(){
     if (cabeza== null){
     return true;
@@ -12,8 +13,8 @@ public class ImplementacionPila implements TADpila {
     }
     
     @Override
-     public void Push (Object dato){
-         NODO nuevo = new NODO(dato);
+     public void Push (T dato){
+         Nodo nuevo = new Nodo(dato);
          
      if(this.Vacia()){
      cabeza = nuevo;
@@ -23,16 +24,18 @@ public class ImplementacionPila implements TADpila {
      cabeza=nuevo;
      }
      };
+     
        @Override
     public void Pop (){
      if(this.Vacia()){
      return;
      }else{
-     NODO Temp = cabeza;
+     Nodo Temp = cabeza;
      cabeza= cabeza.siguiente;
      System.out.println(Temp.dato);
      }
     };
+    
       @Override
     public void Peek(){
       if(this.Vacia()){
@@ -41,4 +44,3 @@ public class ImplementacionPila implements TADpila {
      System.out.println(cabeza.dato);
      }
     };
-}
