@@ -1,22 +1,25 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
+ */
 package Libreria;
 
 /**
  *
- * @author 
+ * @author Enock
  */
-public interface TADArbolBinario {
+public interface TADArbolBinario<T> {
        void vaciar();
-       void altura();
-       void insertar(int numero);
+       int altura();
+       void insertar(T id);
        int obtenerRaiz();
-       int obtenerIzquierdo(Nodo nodo);
-       int obtenerDerecho(Nodo nodo);
-       void eliminar(int numero);
+       int obtenerIzquierdo(Nodo<T> nodo);
+       int obtenerDerecho(Nodo<T> nodo);
+       void eliminar(T id);
        void preOrden();
        void inOrden();
        void postOrden();
-       int nivelOrden(int numero);
-       boolean buscar(int numero);
+       int nivelOrden(T id);
+       boolean buscar(T id);
       
 }
-
