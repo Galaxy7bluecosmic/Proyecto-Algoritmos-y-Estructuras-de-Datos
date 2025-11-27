@@ -1,18 +1,12 @@
-MÓDULO 1 — Catálogo de Logros (Lista Enlazada Doble)
+MÓDULO 2 — Historial de Misiones (Pila)
 
-Registrar logros
+Registrar misión completada → push
 
-Editar logros
+Consultar historial reciente → peek
 
-Eliminar logros
+Eliminar la última misión (rollback) → pop
 
-Listarlos
-
-Filtrar logros (categoría / dificultad / tipo)
-
-Cargar desde XML
-
-Guardar en XML
+Ver historial completo
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
