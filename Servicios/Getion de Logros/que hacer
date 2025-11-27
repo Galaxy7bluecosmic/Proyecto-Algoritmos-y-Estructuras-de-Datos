@@ -1,9 +1,16 @@
-MÓDULO 2 — Historial de Misiones (Pila)
 
-Registrar misión completada → push
+MÓDULO 1 — Catálogo de Logros (Lista Enlazada Doble)
 
-Consultar historial reciente → peek
+Registrar logros
 
-Eliminar la última misión (rollback) → pop
+Editar logros
 
-Ver historial completo
+Eliminar logros
+
+Listarlos
+
+Filtrar logros (categoría / dificultad / tipo)
+
+Cargar desde XML
+
+Guardar en XML
